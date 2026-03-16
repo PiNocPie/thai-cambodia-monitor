@@ -22,7 +22,7 @@ export default function EventTimeline() {
       <div className="rounded-lg p-4" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
         <div className="flex items-center justify-between">
           <h3 className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: D.muted }}>
-            Event Timeline ({events.length} events)
+            ไทม์ไลน์เหตุการณ์ ({events.length} เหตุการณ์)
           </h3>
           <div className="flex gap-1.5">
             {ALL_CATS.map(cat => (
@@ -35,7 +35,7 @@ export default function EventTimeline() {
                   : { backgroundColor: D.bg, color: D.muted, border: `1px solid ${D.border}` }
                 }
               >
-                {cat === 'all' ? 'All' : EVENT_CATEGORIES[cat]?.label}
+                {cat === 'all' ? 'ทั้งหมด' : EVENT_CATEGORIES[cat]?.label}
               </button>
             ))}
           </div>
@@ -70,7 +70,7 @@ export default function EventTimeline() {
               >
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[10px] font-mono" style={{ color: D.dim }}>
-                    {new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                    {new Date(event.date).toLocaleDateString('th-TH', { year: 'numeric', month: 'short', day: 'numeric' })}
                   </span>
                   <span
                     className="px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase"
@@ -80,7 +80,7 @@ export default function EventTimeline() {
                   </span>
                   {event.source && (
                     <span className="text-[10px]" style={{ color: D.dim }}>
-                      via {event.source}
+                      จาก {event.source}
                     </span>
                   )}
                 </div>

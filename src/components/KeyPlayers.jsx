@@ -15,7 +15,7 @@ export default function KeyPlayers() {
       <div className="rounded-lg p-4" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
         <div className="flex items-center justify-between">
           <h3 className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: D.muted }}>
-            Key Political & Military Figures ({players.length})
+            บุคคลสำคัญทางการเมืองและการทหาร ({players.length})
           </h3>
           <div className="flex gap-1.5">
             {COUNTRIES.map(c => (
@@ -28,7 +28,7 @@ export default function KeyPlayers() {
                   : { backgroundColor: D.bg, color: D.muted, border: `1px solid ${D.border}` }
                 }
               >
-                {c === 'all' ? 'All' : c === 'TH' ? '🇹🇭 Thailand' : '🇰🇭 Cambodia'}
+                {c === 'all' ? 'ทั้งหมด' : c === 'TH' ? '🇹🇭 ไทย' : '🇰🇭 กัมพูชา'}
               </button>
             ))}
           </div>
@@ -68,7 +68,7 @@ export default function KeyPlayers() {
                 {/* Stance */}
                 <div className="mb-3">
                   <div className="text-[9px] font-semibold uppercase tracking-widest mb-1" style={{ color: D.muted }}>
-                    Position
+                    จุดยืน
                   </div>
                   <p className="text-[12px] leading-relaxed" style={{ color: D.sub }}>
                     {player.stance}
@@ -81,7 +81,7 @@ export default function KeyPlayers() {
                   style={{ backgroundColor: D.bg, borderLeft: `3px solid ${player.color}` }}
                 >
                   <div className="text-[9px] font-semibold uppercase tracking-widest mb-1" style={{ color: D.muted }}>
-                    Recent Statement
+                    แถลงการณ์ล่าสุด
                   </div>
                   <p className="text-[12px] italic leading-relaxed" style={{ color: D.sub }}>
                     {player.recentStatement}

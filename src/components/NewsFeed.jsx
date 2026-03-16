@@ -38,7 +38,7 @@ export default function NewsFeed() {
           <div className="flex-1">
             <input
               type="text"
-              placeholder="Search news..."
+              placeholder="ค้นหาข่าว..."
               value={search}
               onChange={e => setSearch(e.target.value)}
               className="w-full px-3 py-2 rounded-md text-sm outline-none"
@@ -61,22 +61,22 @@ export default function NewsFeed() {
                   : { backgroundColor: D.bg, color: D.muted, border: `1px solid ${D.border}` }
                 }
               >
-                {cat === 'all' ? 'All' : EVENT_CATEGORIES[cat]?.label || cat}
+                {cat === 'all' ? 'ทั้งหมด' : EVENT_CATEGORIES[cat]?.label || cat}
               </button>
             ))}
           </div>
         </div>
         <div className="flex items-center justify-between mt-3">
           <span className="text-[10px]" style={{ color: D.dim }}>
-            {filtered.length} article{filtered.length !== 1 ? 's' : ''}
-            {lastUpdated && ` · Updated ${lastUpdated.toLocaleTimeString()}`}
+            {filtered.length} บทความ
+            {lastUpdated && ` · อัปเดตล่าสุด ${lastUpdated.toLocaleTimeString('th-TH')}`}
           </span>
           <button
             onClick={refresh}
             className="text-[10px] font-medium px-2.5 py-1 rounded transition-colors"
             style={{ color: D.blue, backgroundColor: D.blueBg, border: `1px solid ${D.blueBorder}` }}
           >
-            Refresh
+            รีเฟรช
           </button>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function NewsFeed() {
       {/* Error */}
       {error && (
         <div className="rounded-lg p-3 text-sm" style={{ backgroundColor: D.accentBg, color: D.accent, border: `1px solid ${D.accentBorder}` }}>
-          API Error: {error} — Showing cached articles
+          ข้อผิดพลาด API: {error} — แสดงบทความที่แคชไว้
         </div>
       )}
 
@@ -92,7 +92,7 @@ export default function NewsFeed() {
       {loading && (
         <div className="text-center py-12" style={{ color: D.muted }}>
           <div className="animate-spin w-6 h-6 border-2 border-current border-t-transparent rounded-full mx-auto mb-3" />
-          Loading news...
+          กำลังโหลดข่าว...
         </div>
       )}
 
@@ -134,7 +134,7 @@ export default function NewsFeed() {
                       {article.source?.name || 'Unknown'}
                     </span>
                     <span className="text-[10px]" style={{ color: D.dim }}>
-                      · {new Date(article.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                      · {new Date(article.publishedAt).toLocaleDateString('th-TH', { month: 'short', day: 'numeric' })}
                     </span>
                   </div>
                   <h3 className="text-sm font-medium mb-1 line-clamp-2" style={{ color: D.text }}>
@@ -149,7 +149,7 @@ export default function NewsFeed() {
           ))}
           {filtered.length === 0 && !loading && (
             <div className="text-center py-12 text-sm" style={{ color: D.muted }}>
-              No articles found matching your filters.
+              ไม่พบบทความที่ตรงกับตัวกรองของคุณ
             </div>
           )}
         </div>

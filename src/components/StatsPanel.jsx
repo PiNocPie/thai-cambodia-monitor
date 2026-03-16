@@ -4,14 +4,14 @@ import RiskGauge from './RiskGauge'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area } from 'recharts'
 
 const STATS = [
-  { label: 'Diplomatic Status', value: 'ELEVATED', accent: D.amber, sub: 'Since Oct 2024' },
-  { label: 'Bilateral Trade', value: '$8.2B', accent: D.text, sub: 'Annual volume (+4.2%)' },
-  { label: 'Border Incidents', value: '12', accent: D.accent, sub: 'Last 90 days' },
-  { label: 'Military Deployments', value: '~5,000', accent: D.accent, sub: 'Thai border est.' },
-  { label: 'Displaced Persons', value: '1,200+', accent: D.amber, sub: 'Along border' },
-  { label: 'Active Negotiations', value: '3', accent: D.green, sub: 'Bilateral talks' },
-  { label: 'UN Resolutions', value: '0', accent: D.muted, sub: 'No new resolutions' },
-  { label: 'Media Coverage', value: 'HIGH', accent: D.amber, sub: 'International attention' },
+  { label: 'สถานะทางการทูต', value: 'ยกระดับ', accent: D.amber, sub: 'ตั้งแต่ ต.ค. 2567' },
+  { label: 'การค้าทวิภาคี', value: '$8.2B', accent: D.text, sub: 'รายปี (+4.2%)' },
+  { label: 'เหตุการณ์ชายแดน', value: '12', accent: D.accent, sub: '90 วันที่ผ่านมา' },
+  { label: 'กำลังทหารประจำการ', value: '~5,000', accent: D.accent, sub: 'ชายแดนไทย ประมาณการ' },
+  { label: 'ผู้พลัดถิ่น', value: '1,200+', accent: D.amber, sub: 'ตามแนวชายแดน' },
+  { label: 'การเจรจาที่กำลังดำเนิน', value: '3', accent: D.green, sub: 'เจรจาทวิภาคี' },
+  { label: 'มติสหประชาชาติ', value: '0', accent: D.muted, sub: 'ไม่มีมติใหม่' },
+  { label: 'การรายงานข่าว', value: 'สูง', accent: D.amber, sub: 'ได้รับความสนใจระหว่างประเทศ' },
 ]
 
 const TRADE_DATA = [
@@ -25,20 +25,20 @@ const TRADE_DATA = [
 ]
 
 const INCIDENT_DATA = [
-  { month: 'Oct', incidents: 2 },
-  { month: 'Nov', incidents: 3 },
-  { month: 'Dec', incidents: 1 },
-  { month: 'Jan', incidents: 4 },
-  { month: 'Feb', incidents: 1 },
-  { month: 'Mar', incidents: 1 },
+  { month: 'ต.ค.', incidents: 2 },
+  { month: 'พ.ย.', incidents: 3 },
+  { month: 'ธ.ค.', incidents: 1 },
+  { month: 'ม.ค.', incidents: 4 },
+  { month: 'ก.พ.', incidents: 1 },
+  { month: 'มี.ค.', incidents: 1 },
 ]
 
 const ISSUE_BREAKDOWN = [
-  { name: 'Border Security', value: 35, color: D.accent },
-  { name: 'Water Rights', value: 25, color: D.blue },
-  { name: 'Trade Disputes', value: 20, color: D.amber },
-  { name: 'Territorial', value: 15, color: '#a855f7' },
-  { name: 'Other', value: 5, color: D.muted },
+  { name: 'ความมั่นคงชายแดน', value: 35, color: D.accent },
+  { name: 'สิทธิ์ทางน้ำ', value: 25, color: D.blue },
+  { name: 'ข้อพิพาทการค้า', value: 20, color: D.amber },
+  { name: 'ดินแดน', value: 15, color: '#a855f7' },
+  { name: 'อื่นๆ', value: 5, color: D.muted },
 ]
 
 const ChartTooltip = ({ active, payload, label }) => {
@@ -74,13 +74,13 @@ export default function StatsPanel() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Risk Gauge */}
         <div className="rounded-lg p-5 flex items-center justify-center" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
-          <RiskGauge value={62} label="Overall Risk Index" size={200} />
+          <RiskGauge value={62} label="ดัชนีความเสี่ยงรวม" size={200} />
         </div>
 
         {/* Trade chart */}
         <div className="rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: D.muted }}>
-            Bilateral Trade ($B)
+            การค้าทวิภาคี (พันล้าน $)
           </h3>
           <ResponsiveContainer width="100%" height={200}>
             <AreaChart data={TRADE_DATA}>
@@ -88,7 +88,7 @@ export default function StatsPanel() {
               <XAxis dataKey="year" tick={{ fontSize: 10, fill: D.dim }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fontSize: 10, fill: D.dim }} axisLine={false} tickLine={false} />
               <Tooltip content={<ChartTooltip />} />
-              <Area type="monotone" dataKey="thailand" stroke={D.blue} fill={D.blueBg} strokeWidth={2} name="Trade Volume" />
+              <Area type="monotone" dataKey="thailand" stroke={D.blue} fill={D.blueBg} strokeWidth={2} name="มูลค่าการค้า" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -96,7 +96,7 @@ export default function StatsPanel() {
         {/* Issue breakdown */}
         <div className="rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: D.muted }}>
-            Issue Breakdown
+            สัดส่วนประเด็น
           </h3>
           <ResponsiveContainer width="100%" height={160}>
             <PieChart>
@@ -129,7 +129,7 @@ export default function StatsPanel() {
       {/* Border incidents */}
       <div className="rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
         <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: D.muted }}>
-          Border Incidents (Last 6 Months)
+          เหตุการณ์ชายแดน (6 เดือนที่ผ่านมา)
         </h3>
         <ResponsiveContainer width="100%" height={180}>
           <BarChart data={INCIDENT_DATA}>
@@ -137,7 +137,7 @@ export default function StatsPanel() {
             <XAxis dataKey="month" tick={{ fontSize: 10, fill: D.dim }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fontSize: 10, fill: D.dim }} axisLine={false} tickLine={false} />
             <Tooltip content={<ChartTooltip />} />
-            <Bar dataKey="incidents" fill={D.accent} radius={[4, 4, 0, 0]} name="Incidents" />
+            <Bar dataKey="incidents" fill={D.accent} radius={[4, 4, 0, 0]} name="เหตุการณ์" />
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -35,9 +35,9 @@ const fmtNum = (n) => {
 
 export default function SentimentDashboard() {
   const pieData = [
-    { name: 'Positive', value: SENTIMENT_SUMMARY.positive, color: D.green },
-    { name: 'Neutral', value: SENTIMENT_SUMMARY.neutral, color: D.blue },
-    { name: 'Negative', value: SENTIMENT_SUMMARY.negative, color: D.accent },
+    { name: 'เชิงบวก', value: SENTIMENT_SUMMARY.positive, color: D.green },
+    { name: 'เป็นกลาง', value: SENTIMENT_SUMMARY.neutral, color: D.blue },
+    { name: 'เชิงลบ', value: SENTIMENT_SUMMARY.negative, color: D.accent },
   ]
 
   return (
@@ -47,15 +47,15 @@ export default function SentimentDashboard() {
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: D.muted }}>
-              Social Media Sentiment Analysis
+              การวิเคราะห์ความคิดเห็นโซเชียลมีเดีย
             </h3>
             <p className="text-[11px] mt-1" style={{ color: D.dim }}>
-              Tracking public sentiment across X (Twitter) regarding Thai-Cambodia relations (mock data)
+              ติดตามความคิดเห็นสาธารณะบน X (Twitter) เกี่ยวกับความสัมพันธ์ไทย-กัมพูชา (ข้อมูลจำลอง)
             </p>
           </div>
           <div className="text-right">
             <div className="text-lg font-bold" style={{ color: D.text }}>{fmtNum(SENTIMENT_SUMMARY.total)}</div>
-            <div className="text-[10px]" style={{ color: D.muted }}>Total mentions</div>
+            <div className="text-[10px]" style={{ color: D.muted }}>การกล่าวถึงทั้งหมด</div>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function SentimentDashboard() {
         {/* Sentiment over time */}
         <div className="lg:col-span-2 rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: D.muted }}>
-            Sentiment Over Time
+            ความคิดเห็นตามช่วงเวลา
           </h3>
           <ResponsiveContainer width="100%" height={220}>
             <AreaChart data={SENTIMENT_TIMELINE}>
@@ -73,9 +73,9 @@ export default function SentimentDashboard() {
               <XAxis dataKey="date" tick={{ fontSize: 9, fill: D.dim }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fontSize: 10, fill: D.dim }} axisLine={false} tickLine={false} />
               <Tooltip content={<ChartTooltip />} />
-              <Area type="monotone" dataKey="positive" stackId="1" stroke={D.green} fill={D.greenBg} name="Positive" />
-              <Area type="monotone" dataKey="neutral" stackId="1" stroke={D.blue} fill={D.blueBg} name="Neutral" />
-              <Area type="monotone" dataKey="negative" stackId="1" stroke={D.accent} fill={D.accentBg} name="Negative" />
+              <Area type="monotone" dataKey="positive" stackId="1" stroke={D.green} fill={D.greenBg} name="เชิงบวก" />
+              <Area type="monotone" dataKey="neutral" stackId="1" stroke={D.blue} fill={D.blueBg} name="เป็นกลาง" />
+              <Area type="monotone" dataKey="negative" stackId="1" stroke={D.accent} fill={D.accentBg} name="เชิงลบ" />
             </AreaChart>
           </ResponsiveContainer>
           <div className="flex gap-4 mt-3">
@@ -91,7 +91,7 @@ export default function SentimentDashboard() {
         {/* Sentiment breakdown donut */}
         <div className="rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: D.muted }}>
-            Current Breakdown
+            สัดส่วนปัจจุบัน
           </h3>
           <ResponsiveContainer width="100%" height={160}>
             <PieChart>
@@ -128,7 +128,7 @@ export default function SentimentDashboard() {
         {/* Trending hashtags */}
         <div className="rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: D.muted }}>
-            Trending Hashtags
+            แฮชแท็กที่กำลังเป็นกระแส
           </h3>
           <div className="space-y-2.5">
             {TRENDING_HASHTAGS.map((ht, i) => (
@@ -151,7 +151,7 @@ export default function SentimentDashboard() {
         {/* Sample posts */}
         <div className="lg:col-span-2 rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-4" style={{ color: D.muted }}>
-            Notable Posts
+            โพสต์ที่น่าสนใจ
           </h3>
           <div className="space-y-3">
             {SAMPLE_POSTS.map((post, i) => (
@@ -187,8 +187,8 @@ export default function SentimentDashboard() {
                   {post.text}
                 </p>
                 <div className="flex items-center gap-4 mt-2 text-[10px]" style={{ color: D.dim }}>
-                  <span>{fmtNum(post.likes)} likes</span>
-                  <span>{fmtNum(post.reposts)} reposts</span>
+                  <span>{fmtNum(post.likes)} ถูกใจ</span>
+                  <span>{fmtNum(post.reposts)} รีโพสต์</span>
                 </div>
               </div>
             ))}

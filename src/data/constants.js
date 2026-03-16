@@ -25,27 +25,27 @@ export const D = {
 }
 
 export const NAV = [
-  { id: 'summary',   label: 'Summary' },
-  { id: 'news',      label: 'Live News' },
-  { id: 'timeline',  label: 'Timeline' },
-  { id: 'map',       label: 'Map' },
-  { id: 'stats',     label: 'Statistics' },
-  { id: 'sentiment', label: 'Sentiment' },
-  { id: 'players',   label: 'Key Players' },
+  { id: 'summary',   label: 'สรุปสถานการณ์' },
+  { id: 'news',      label: 'ข่าวสด' },
+  { id: 'timeline',  label: 'ไทม์ไลน์' },
+  { id: 'map',       label: 'แผนที่' },
+  { id: 'stats',     label: 'สถิติ' },
+  { id: 'sentiment', label: 'ความคิดเห็น' },
+  { id: 'players',   label: 'บุคคลสำคัญ' },
 ]
 
 export const EVENT_CATEGORIES = {
-  military:     { label: 'Military',     color: '#ef4444' },
-  diplomatic:   { label: 'Diplomatic',   color: '#3b82f6' },
-  economic:     { label: 'Economic',     color: '#f59e0b' },
-  humanitarian: { label: 'Humanitarian', color: '#10b981' },
+  military:     { label: 'การทหาร',     color: '#ef4444' },
+  diplomatic:   { label: 'การทูต',      color: '#3b82f6' },
+  economic:     { label: 'เศรษฐกิจ',    color: '#f59e0b' },
+  humanitarian: { label: 'มนุษยธรรม',   color: '#10b981' },
 }
 
 export const DIPLO_STATUS = {
-  normal:   { label: 'Normal',   color: '#10b981', bg: 'rgba(16,185,129,0.1)' },
-  elevated: { label: 'Elevated', color: '#f59e0b', bg: 'rgba(245,158,11,0.1)' },
-  tense:    { label: 'Tense',    color: '#f97316', bg: 'rgba(249,115,22,0.1)' },
-  critical: { label: 'Critical', color: '#ef4444', bg: 'rgba(239,68,68,0.1)' },
+  normal:   { label: 'ปกติ',      color: '#10b981', bg: 'rgba(16,185,129,0.1)' },
+  elevated: { label: 'ยกระดับ',   color: '#f59e0b', bg: 'rgba(245,158,11,0.1)' },
+  tense:    { label: 'ตึงเครียด', color: '#f97316', bg: 'rgba(249,115,22,0.1)' },
+  critical: { label: 'วิกฤต',     color: '#ef4444', bg: 'rgba(239,68,68,0.1)' },
 }
 
 export const NEWS_KEYWORDS = {

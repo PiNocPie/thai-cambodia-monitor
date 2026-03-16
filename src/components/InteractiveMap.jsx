@@ -53,20 +53,21 @@ function MapLegend() {
         line-height: 1.8;
       `
       div.innerHTML = `
-        <div style="font-weight:600; margin-bottom:4px; color:${D.text}; text-transform:uppercase; letter-spacing:1px; font-size:9px">Legend</div>
-        ${Object.entries(MARKER_COLORS).map(([type, color]) =>
-          `<div style="display:flex; align-items:center; gap:6px">
+        <div style="font-weight:600; margin-bottom:4px; color:${D.text}; text-transform:uppercase; letter-spacing:1px; font-size:9px">คำอธิบาย</div>
+        ${Object.entries(MARKER_COLORS).map(([type, color]) => {
+          const labels = { capital: 'เมืองหลวง', disputed: 'พื้นที่พิพาท', border_crossing: 'ด่านชายแดน', military: 'ทหาร', city: 'เมือง', environmental: 'สิ่งแวดล้อม', infrastructure: 'โครงสร้างพื้นฐาน' }
+          return `<div style="display:flex; align-items:center; gap:6px">
             <span style="width:8px; height:8px; border-radius:50%; background:${color}; flex-shrink:0"></span>
-            ${type.replace('_', ' ')}
+            ${labels[type] || type}
           </div>`
-        ).join('')}
+        }).join('')}
         <div style="display:flex; align-items:center; gap:6px; margin-top:2px">
           <span style="width:12px; height:2px; background:${D.accent}; flex-shrink:0"></span>
-          Border
+          ชายแดน
         </div>
         <div style="display:flex; align-items:center; gap:6px">
           <span style="width:12px; height:2px; background:${D.amber}; flex-shrink:0; border-style:dashed; border-width:0 0 2px 0; border-color:${D.amber}; height:0;"></span>
-          Canal Route
+          เส้นทางคลอง
         </div>
       `
       return div
@@ -83,10 +84,10 @@ export default function InteractiveMap() {
     <div className="space-y-4">
       <div className="rounded-lg p-4" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
         <h3 className="text-[10px] font-semibold uppercase tracking-widest mb-1" style={{ color: D.muted }}>
-          Geographic Overview
+          ภาพรวมทางภูมิศาสตร์
         </h3>
         <p className="text-[11px]" style={{ color: D.dim }}>
-          Thailand-Cambodia border region with key locations, disputed areas, and infrastructure projects
+          พื้นที่ชายแดนไทย-กัมพูชา พร้อมจุดสำคัญ พื้นที่พิพาท และโครงการโครงสร้างพื้นฐาน
         </p>
       </div>
 

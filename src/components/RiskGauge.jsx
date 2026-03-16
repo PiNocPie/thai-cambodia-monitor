@@ -1,6 +1,6 @@
 import { D } from '../data/constants'
 
-export default function RiskGauge({ value = 65, label = 'Risk Level', size = 180 }) {
+export default function RiskGauge({ value = 65, label = 'ระดับความเสี่ยง', size = 180 }) {
   const r = (size - 20) / 2
   const cx = size / 2
   const cy = size / 2 + 10
@@ -8,11 +8,11 @@ export default function RiskGauge({ value = 65, label = 'Risk Level', size = 180
   const offset = circumference - (value / 100) * circumference
 
   let riskLabel, riskColor
-  if (value < 30) { riskLabel = 'LOW'; riskColor = D.green }
-  else if (value < 50) { riskLabel = 'MODERATE'; riskColor = '#22d3ee' }
-  else if (value < 70) { riskLabel = 'ELEVATED'; riskColor = D.amber }
-  else if (value < 85) { riskLabel = 'HIGH'; riskColor = '#f97316' }
-  else { riskLabel = 'CRITICAL'; riskColor = D.accent }
+  if (value < 30) { riskLabel = 'ต่ำ'; riskColor = D.green }
+  else if (value < 50) { riskLabel = 'ปานกลาง'; riskColor = '#22d3ee' }
+  else if (value < 70) { riskLabel = 'ยกระดับ'; riskColor = D.amber }
+  else if (value < 85) { riskLabel = 'สูง'; riskColor = '#f97316' }
+  else { riskLabel = 'วิกฤต'; riskColor = D.accent }
 
   return (
     <div className="flex flex-col items-center">

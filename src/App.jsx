@@ -14,7 +14,7 @@ const InteractiveMap = lazy(() => import('./components/InteractiveMap'))
 const MapLoader = () => (
   <div className="text-center py-20" style={{ color: D.muted }}>
     <div className="animate-spin w-6 h-6 border-2 border-current border-t-transparent rounded-full mx-auto mb-3" />
-    Loading map...
+    กำลังโหลดแผนที่...
   </div>
 )
 
@@ -41,7 +41,7 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t px-6 py-4 text-center" style={{ borderColor: D.border }}>
         <p className="text-[10px]" style={{ color: D.dim }}>
-          TH-KH Monitor — Thailand-Cambodia Situation Dashboard — Data for educational purposes only
+          ศูนย์ติดตาม ไทย-กัมพูชา — แดชบอร์ดติดตามสถานการณ์ — ข้อมูลเพื่อการศึกษาเท่านั้น
         </p>
       </footer>
     </div>

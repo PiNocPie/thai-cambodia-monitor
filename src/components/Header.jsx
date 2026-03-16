@@ -16,18 +16,18 @@ export default function Header({ activeTab, onNavigate }) {
                 M
               </div>
               <span className="font-semibold text-sm" style={{ color: D.text }}>
-                TH-KH Monitor
+                ศูนย์ติดตาม ไทย-กัมพูชา
               </span>
             </div>
             <StatusIndicator status="elevated" />
           </div>
           <div className="flex items-center gap-3">
             <span className="text-[10px] hidden sm:block" style={{ color: D.dim }}>
-              Thailand - Cambodia Situation Dashboard
+              แดชบอร์ดติดตามสถานการณ์ ไทย-กัมพูชา
             </span>
             <div className="w-px h-4" style={{ backgroundColor: D.border }} />
             <span className="text-[10px]" style={{ color: D.muted }}>
-              {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              {new Date().toLocaleDateString('th-TH', { month: 'short', day: 'numeric', year: 'numeric' })}
             </span>
           </div>
         </div>

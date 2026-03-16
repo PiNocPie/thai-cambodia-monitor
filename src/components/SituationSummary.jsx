@@ -4,19 +4,19 @@ import StatusIndicator from './StatusIndicator'
 import RiskGauge from './RiskGauge'
 
 const TAKEAWAYS = [
-  'Bilateral tensions remain elevated following cancellation of joint military exercises and trade restriction disputes.',
-  'The Funan Techo Canal project continues to be a central point of friction, with environmental and strategic concerns from Thailand and Vietnam.',
-  'ASEAN-mediated talks in Singapore show signs of progress, with both foreign ministers agreeing to de-escalation measures.',
-  'Border communities remain affected, with over 1,200 displaced persons reported by international organizations.',
-  'Economic ties remain resilient despite political tensions, with bilateral trade growing 4.2% year-over-year to $8.2 billion.',
-  'Military deployments in Sa Kaeo and Surin provinces have increased, though both sides maintain they are defensive in nature.',
+  'ความตึงเครียดทวิภาคียังคงอยู่ในระดับสูง หลังจากยกเลิกการฝึกทหารร่วมและข้อพิพาททางการค้า',
+  'โครงการคลองฟูนันเตโชยังคงเป็นจุดขัดแย้งหลัก ด้วยข้อกังวลด้านสิ่งแวดล้อมและเชิงกลยุทธ์จากไทยและเวียดนาม',
+  'การเจรจาที่มีอาเซียนเป็นตัวกลางที่สิงคโปร์แสดงสัญญาณเชิงบวก โดยรัฐมนตรีต่างประเทศทั้งสองฝ่ายตกลงมาตรการลดความตึงเครียด',
+  'ชุมชนชายแดนยังคงได้รับผลกระทบ โดยมีผู้พลัดถิ่นมากกว่า 1,200 คนตามรายงานขององค์กรระหว่างประเทศ',
+  'ความสัมพันธ์ทางเศรษฐกิจยังคงแข็งแกร่งแม้มีความตึงเครียดทางการเมือง การค้าทวิภาคีเติบโต 4.2% เมื่อเทียบปีต่อปี เป็นมูลค่า 8.2 พันล้านดอลลาร์',
+  'การวางกำลังทหารในจังหวัดสระแก้วและสุรินทร์เพิ่มขึ้น แม้ทั้งสองฝ่ายยืนยันว่าเป็นเชิงป้องกัน',
 ]
 
 const QUICK_STATS = [
-  { label: 'Diplomatic Status', value: 'ELEVATED', accent: D.amber, sub: 'Since Oct 2024' },
-  { label: 'Border Incidents', value: '12', accent: D.accent, sub: 'Last 90 days' },
-  { label: 'Bilateral Trade', value: '$8.2B', accent: D.text, sub: 'Annual (+4.2% YoY)' },
-  { label: 'Displaced Persons', value: '1,200+', accent: D.amber, sub: 'Along border region' },
+  { label: 'สถานะทางการทูต', value: 'ยกระดับ', accent: D.amber, sub: 'ตั้งแต่ ต.ค. 2567' },
+  { label: 'เหตุการณ์ชายแดน', value: '12', accent: D.accent, sub: '90 วันที่ผ่านมา' },
+  { label: 'การค้าทวิภาคี', value: '$8.2B', accent: D.text, sub: 'รายปี (+4.2% YoY)' },
+  { label: 'ผู้พลัดถิ่น', value: '1,200+', accent: D.amber, sub: 'ตามแนวชายแดน' },
 ]
 
 export default function SituationSummary() {
@@ -30,22 +30,22 @@ export default function SituationSummary() {
               <StatusIndicator status="elevated" size="lg" />
               <div>
                 <h2 className="text-base font-semibold" style={{ color: D.text }}>
-                  Situation Assessment
+                  การประเมินสถานการณ์
                 </h2>
                 <p className="text-[11px]" style={{ color: D.sub }}>
-                  As of {new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  ณ วันที่ {new Date().toLocaleDateString('th-TH', { day: 'numeric', month: 'long', year: 'numeric' })}
                 </p>
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-4" style={{ color: D.sub }}>
-              Thai-Cambodia relations remain at an elevated level of tension, primarily driven by disputes over the Funan Techo Canal
-              project, ongoing border security concerns, and periodic trade frictions. While active military confrontation has not occurred,
-              the cancellation of joint military exercises and increased troop deployments signal a deterioration from the relatively
-              stable period of 2015-2023. Diplomatic channels remain open through ASEAN mediation, and recent foreign minister talks
-              in Singapore offer cautious optimism for de-escalation.
+              ความสัมพันธ์ไทย-กัมพูชายังคงอยู่ในระดับตึงเครียดสูง โดยมีสาเหตุหลักจากข้อพิพาทเรื่องโครงการคลองฟูนันเตโช
+              ข้อกังวลด้านความมั่นคงชายแดนที่ยังดำเนินอยู่ และความขัดแย้งทางการค้าเป็นระยะ แม้จะยังไม่เกิดการเผชิญหน้าทางทหาร
+              แต่การยกเลิกการฝึกทหารร่วมและการเพิ่มกำลังทหารเป็นสัญญาณของความเสื่อมถอยจากช่วงเสถียรภาพ
+              ในปี 2558-2566 ช่องทางการทูตยังคงเปิดอยู่ผ่านการไกล่เกลี่ยของอาเซียน และการเจรจาล่าสุดของรัฐมนตรีต่างประเทศ
+              ที่สิงคโปร์ให้ความหวังอย่างระมัดระวังต่อการลดความตึงเครียด
             </p>
             <div className="flex flex-wrap gap-2">
-              {['Border Security', 'Water Resources', 'Trade Relations', 'Military Posture', 'Diplomatic Channels'].map(tag => (
+              {['ความมั่นคงชายแดน', 'ทรัพยากรน้ำ', 'ความสัมพันธ์การค้า', 'ท่าทีทางทหาร', 'ช่องทางการทูต'].map(tag => (
                 <span
                   key={tag}
                   className="px-2.5 py-1 rounded text-[10px] font-medium"
@@ -57,7 +57,7 @@ export default function SituationSummary() {
             </div>
           </div>
           <div className="flex-shrink-0">
-            <RiskGauge value={62} label="Overall Risk" />
+            <RiskGauge value={62} label="ระดับความเสี่ยงรวม" />
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default function SituationSummary() {
           className="text-[10px] font-semibold uppercase tracking-widest mb-4"
           style={{ color: D.muted }}
         >
-          Key Takeaways
+          ประเด็นสำคัญ
         </h3>
         <ul className="space-y-3">
           {TAKEAWAYS.map((item, i) => (
@@ -96,24 +96,24 @@ export default function SituationSummary() {
         <div className="rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-lg">🇹🇭</span>
-            <h3 className="text-sm font-semibold">Thailand</h3>
+            <h3 className="text-sm font-semibold">ประเทศไทย</h3>
           </div>
           <div className="space-y-2 text-[12px]" style={{ color: D.sub }}>
             <div className="flex justify-between">
-              <span>Head of State</span>
-              <span style={{ color: D.text }}>PM Paetongtarn Shinawatra</span>
+              <span>ผู้นำประเทศ</span>
+              <span style={{ color: D.text }}>นายกฯ แพทองธาร ชินวัตร</span>
             </div>
             <div className="flex justify-between">
-              <span>Military Posture</span>
-              <span style={{ color: D.amber }}>Reinforced</span>
+              <span>ท่าทีทางทหาร</span>
+              <span style={{ color: D.amber }}>เสริมกำลัง</span>
             </div>
             <div className="flex justify-between">
-              <span>Diplomatic Approach</span>
-              <span style={{ color: D.blue }}>Dialogue + Firmness</span>
+              <span>แนวทางการทูต</span>
+              <span style={{ color: D.blue }}>เจรจา + ยืนหยัด</span>
             </div>
             <div className="flex justify-between">
-              <span>Key Concern</span>
-              <span style={{ color: D.text }}>Water rights & border security</span>
+              <span>ข้อกังวลหลัก</span>
+              <span style={{ color: D.text }}>สิทธิ์ทางน้ำ & ความมั่นคงชายแดน</span>
             </div>
           </div>
         </div>
@@ -121,24 +121,24 @@ export default function SituationSummary() {
         <div className="rounded-lg p-5" style={{ background: D.surface, border: `1px solid ${D.border}` }}>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-lg">🇰🇭</span>
-            <h3 className="text-sm font-semibold">Cambodia</h3>
+            <h3 className="text-sm font-semibold">กัมพูชา</h3>
           </div>
           <div className="space-y-2 text-[12px]" style={{ color: D.sub }}>
             <div className="flex justify-between">
-              <span>Head of State</span>
-              <span style={{ color: D.text }}>PM Hun Manet</span>
+              <span>ผู้นำประเทศ</span>
+              <span style={{ color: D.text }}>นายกฯ ฮุน มาเนต</span>
             </div>
             <div className="flex justify-between">
-              <span>Military Posture</span>
-              <span style={{ color: D.amber }}>Defensive</span>
+              <span>ท่าทีทางทหาร</span>
+              <span style={{ color: D.amber }}>เชิงรับ</span>
             </div>
             <div className="flex justify-between">
-              <span>Diplomatic Approach</span>
-              <span style={{ color: D.blue }}>Sovereignty + Cooperation</span>
+              <span>แนวทางการทูต</span>
+              <span style={{ color: D.blue }}>อธิปไตย + ความร่วมมือ</span>
             </div>
             <div className="flex justify-between">
-              <span>Key Priority</span>
-              <span style={{ color: D.text }}>Funan Techo Canal</span>
+              <span>ประเด็นสำคัญ</span>
+              <span style={{ color: D.text }}>คลองฟูนันเตโช</span>
             </div>
           </div>
         </div>
