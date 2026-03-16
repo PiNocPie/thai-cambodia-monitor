@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { D, EVENT_CATEGORIES } from '../data/constants'
 import { useNewsFeed } from '../hooks/useNewsFeed'
+import AdBanner from './AdBanner'
 
 const ALL_CATEGORIES = ['all', 'military', 'diplomatic', 'economic', 'humanitarian']
 
@@ -100,52 +101,55 @@ export default function NewsFeed() {
       {!loading && (
         <div className="space-y-3">
           {filtered.map((article, i) => (
-            <a
-              key={i}
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block rounded-lg p-4 transition-colors"
-              style={{ background: D.surface, border: `1px solid ${D.border}` }}
-              onMouseOver={e => e.currentTarget.style.borderColor = D.borderLight}
-              onMouseOut={e => e.currentTarget.style.borderColor = D.border}
-            >
-              <div className="flex items-start gap-4">
-                {article.image && (
-                  <img
-                    src={article.image}
-                    alt=""
-                    className="w-24 h-16 object-cover rounded flex-shrink-0"
-                    onError={e => e.target.style.display = 'none'}
-                  />
-                )}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span
-                      className="px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase"
-                      style={{
-                        backgroundColor: (catColor(article.category) || D.muted) + '15',
-                        color: catColor(article.category) || D.muted,
-                      }}
-                    >
-                      {article.category || 'general'}
-                    </span>
-                    <span className="text-[10px]" style={{ color: D.dim }}>
-                      {article.source?.name || 'Unknown'}
-                    </span>
-                    <span className="text-[10px]" style={{ color: D.dim }}>
-                      · {new Date(article.publishedAt).toLocaleDateString('th-TH', { month: 'short', day: 'numeric' })}
-                    </span>
+            <div key={i}>
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-lg p-4 transition-colors"
+                style={{ background: D.surface, border: `1px solid ${D.border}` }}
+                onMouseOver={e => e.currentTarget.style.borderColor = D.borderLight}
+                onMouseOut={e => e.currentTarget.style.borderColor = D.border}
+              >
+                <div className="flex items-start gap-4">
+                  {article.image && (
+                    <img
+                      src={article.image}
+                      alt=""
+                      className="w-24 h-16 object-cover rounded flex-shrink-0"
+                      onError={e => e.target.style.display = 'none'}
+                    />
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span
+                        className="px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase"
+                        style={{
+                          backgroundColor: (catColor(article.category) || D.muted) + '15',
+                          color: catColor(article.category) || D.muted,
+                        }}
+                      >
+                        {article.category || 'general'}
+                      </span>
+                      <span className="text-[10px]" style={{ color: D.dim }}>
+                        {article.source?.name || 'Unknown'}
+                      </span>
+                      <span className="text-[10px]" style={{ color: D.dim }}>
+                        · {new Date(article.publishedAt).toLocaleDateString('th-TH', { month: 'short', day: 'numeric' })}
+                      </span>
+                    </div>
+                    <h3 className="text-sm font-medium mb-1 line-clamp-2" style={{ color: D.text }}>
+                      {article.title}
+                    </h3>
+                    <p className="text-[12px] line-clamp-2" style={{ color: D.sub }}>
+                      {article.description}
+                    </p>
                   </div>
-                  <h3 className="text-sm font-medium mb-1 line-clamp-2" style={{ color: D.text }}>
-                    {article.title}
-                  </h3>
-                  <p className="text-[12px] line-clamp-2" style={{ color: D.sub }}>
-                    {article.description}
-                  </p>
                 </div>
-              </div>
-            </a>
+              </a>
+              {/* Show ad after every 3rd article */}
+              {(i + 1) % 3 === 0 && i < filtered.length - 1 && <AdBanner format="inline" />}
+            </div>
           ))}
           {filtered.length === 0 && !loading && (
             <div className="text-center py-12 text-sm" style={{ color: D.muted }}>

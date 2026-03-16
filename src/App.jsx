@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { D } from './data/constants'
 import { useHashRoute } from './hooks/useHashRoute'
 import Header from './components/Header'
+import AdBanner from './components/AdBanner'
 import SituationSummary from './components/SituationSummary'
 import NewsFeed from './components/NewsFeed'
 import EventTimeline from './components/EventTimeline'
@@ -25,6 +26,9 @@ export default function App() {
     <div className="min-h-screen" style={{ backgroundColor: D.bg, color: D.text }}>
       <Header activeTab={activeTab} onNavigate={navigateTo} />
       <main className="max-w-screen-xl mx-auto px-4 sm:px-6 py-6">
+        {/* Top banner ad */}
+        <AdBanner format="banner" />
+
         {activeTab === 'summary'   && <SituationSummary />}
         {activeTab === 'news'      && <NewsFeed />}
         {activeTab === 'timeline'  && <EventTimeline />}
@@ -36,6 +40,9 @@ export default function App() {
         {activeTab === 'stats'     && <StatsPanel />}
         {activeTab === 'sentiment' && <SentimentDashboard />}
         {activeTab === 'players'   && <KeyPlayers />}
+
+        {/* Bottom inline ad */}
+        <AdBanner format="inline" />
       </main>
 
       {/* Footer */}
